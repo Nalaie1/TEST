@@ -1,41 +1,31 @@
 ﻿using System;
-using System.Collections.Concurrent;
-using System.IO;
-using System.Linq;
-using System.Threading.Tasks;
+using ConsoleApp1;
 
 class Program
 {
     static void Main(string[] args)
     {
-        string filePath = @"C:\Logs\biglog.txt"; // file log lớn
-        var wordCounts = new ConcurrentDictionary<string, int>(StringComparer.OrdinalIgnoreCase);
+        // Hiển thị menu cho người dùng chọn bài muốn chạy
+        Console.WriteLine("Chọn chế độ chạy:");
+        Console.WriteLine("1. Đếm tần suất từ (Parallel.ForEach)");
+        Console.WriteLine("2. Benchmark xử lý 10^6 record");
+        Console.Write("Nhập lựa chọn (1/2): ");
 
-        // Đọc file theo từng dòng (không load hết vào RAM)
-        var lines = File.ReadLines(filePath);
+        string? choice = Console.ReadLine(); // Nhận lựa chọn từ bàn phím
 
-        // Xử lý song song từng dòng
-        Parallel.ForEach(lines, line =>
+        switch (choice)
         {
-            var words = line
-                .Split(new char[] { ' ', '\t', ',', '.', ';', ':', '-', '_', '/', '\\', '\"', '\'', '(', ')', '[', ']', '{', '}' },
-                    StringSplitOptions.RemoveEmptyEntries);
-
-            foreach (var word in words)
-            {
-                wordCounts.AddOrUpdate(word, 1, (key, oldValue) => oldValue + 1);
-            }
-        });
-
-        // Lấy 10 từ xuất hiện nhiều nhất
-        var top10 = wordCounts
-            .OrderByDescending(kvp => kvp.Value)
-            .Take(10);
-
-        Console.WriteLine("Top 10 từ xuất hiện nhiều nhất:");
-        foreach (var kvp in top10)
-        {
-            Console.WriteLine($"{kvp.Key}: {kvp.Value}");
+            case "1":
+                // Gọi hàm đếm tần suất từ (bài Day 1–2)
+                Day1.Run();
+                break;
+            case "2":
+                // Gọi hàm benchmark (bài Day 3)
+                Day2.Run();
+                break;
+            default:
+                Console.WriteLine("Lựa chọn không hợp lệ.");
+                break;
         }
     }
 }
