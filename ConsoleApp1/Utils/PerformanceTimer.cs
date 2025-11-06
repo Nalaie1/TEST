@@ -13,13 +13,13 @@ namespace ConsoleApp1.Utils
         {
             _label = label;
             _stopwatch = Stopwatch.StartNew();
-            Console.WriteLine($"⏱️  Bắt đầu: {_label}");
+            Console.WriteLine($"Bắt đầu: {_label}");
         }
 
         public void Dispose()
         {
             _stopwatch.Stop();
-            Console.WriteLine($"✅ Kết thúc {_label} - Thời gian: {_stopwatch.ElapsedMilliseconds} ms\n");
+            Console.WriteLine($"Kết thúc {_label} - Thời gian: {_stopwatch.ElapsedMilliseconds} ms\n");
         }
 
         // 🔹 1️⃣ Đo thời gian cho hành động không trả về giá trị
