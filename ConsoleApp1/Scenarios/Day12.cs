@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ConsoleApp1;
 
-public class Day1
+public class Day12
 {
     public static void Run()
     {
@@ -40,4 +40,4 @@ public class Day1
             Console.WriteLine($"{kvp.Key}: {kvp.Value}");
         }
     }
-}
+}   

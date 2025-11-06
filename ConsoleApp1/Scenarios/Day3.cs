@@ -4,7 +4,7 @@ using System.Diagnostics; //dùng Stopwatch để đo thời gian
 using System.Linq;
 using System.Threading.Tasks;
 
-public class Day2
+public class Day3
 {
     public static void Run()
     {
