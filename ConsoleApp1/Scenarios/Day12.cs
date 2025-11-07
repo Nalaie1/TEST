@@ -11,7 +11,7 @@ public class Day12
 {
     public static void Run()
     {
-        string filePath = @"C:\Logs\biglog.txt"; // file log lớn
+        string filePath = @"C:\Users\Admin\RiderProjects\ConsoleApp1\ConsoleApp1\Logs\biglog.txt"; // file log lớn
         var wordCounts = new ConcurrentDictionary<string, int>(StringComparer.OrdinalIgnoreCase);
 
         Console.WriteLine("🔹 Bắt đầu đếm tần suất từ...\n");

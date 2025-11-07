@@ -10,7 +10,7 @@ namespace ConsoleApp1;
 
 public class Day5
 {
-    private static readonly string filePath = @"C:\Logs\biglog.txt";
+    private static readonly string filePath = @"C:\Users\Admin\RiderProjects\ConsoleApp1\ConsoleApp1\Logs\biglog.txt";
 
     public static async Task RunAsync()
     {
